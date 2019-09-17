@@ -1,0 +1,97 @@
+<div id="notification">
+  <div id="content">
+    <div id="text">Nouvel étudiant connecté</div>
+  </div>
+</div>
+<div id="nbStudents"><p>{{NBStudentsOnline}}</p></div>
+
+<div class="container">
+  <div class="header">
+    <!-- <h1>Nombre étudiants connectés : {{NBStudentsOnline}}</h1> -->
+    <h1>{{actualQCM.nomQCM}}</h1>
+    <h2>{{actualQCM.matiereQCM}}</h2>
+  </div>
+
+  <p *ngIf="sessionStoped" class="sessionInfo">Session terminée</p>
+  <p *ngIf="sessionStarted" class="sessionInfo">Session en cours</p>
+
+  <div id="panelTeacher" *ngIf="isTeacher">
+    <a (click)="showResponses()">Afficher réponse question actuelle</a>
+    <a (click)="newQuestion()">Nouvelle question</a>
+    <a (click)="startSession()" *ngIf="!sessionStarted">Démarrer la session</a>
+    <a (click)="stopSession()" *ngIf="sessionStarted">Fermer la session</a>
+    <div id="listAnswerDiv">
+
+      <ng-container *ngFor="let question of listAnswerEleve ; let i = index ">
+        <h2 class="questionEnonce">{{actualQCM.listQuestions[i].enonce}}</h2>
+
+        <div class="listChoixStyle teacher">
+          <p [class.trueP]="actualQCM.listQuestions[i].listChoix[0].isValid" [class.neutralP]="!actualQCM.listQuestions[i].listChoix[0].isValid"><span [class.activeSpan]="cbResult0">{{prefixResponse[0]}}</span>{{actualQCM.listQuestions[i].listChoix[0].texteChoix}}</p>
+        </div>
+        <div class="listChoixStyle teacher">
+          <p [class.trueP]="actualQCM.listQuestions[i].listChoix[1].isValid" [class.neutralP]="!actualQCM.listQuestions[i].listChoix[1].isValid"><span [class.activeSpan]="cbResult1">{{prefixResponse[1]}}</span>{{actualQCM.listQuestions[i].listChoix[1].texteChoix}}</p>
+        </div>
+        <div class="listChoixStyle teacher">
+          <p [class.trueP]="actualQCM.listQuestions[i].listChoix[2].isValid" [class.neutralP]="!actualQCM.listQuestions[i].listChoix[2].isValid"><span [class.activeSpan]="cbResult2">{{prefixResponse[2]}}</span>{{actualQCM.listQuestions[i].listChoix[2].texteChoix}}</p>
+        </div>
+        <div class="listChoixStyle teacher">
+          <p [class.trueP]="actualQCM.listQuestions[i].listChoix[3].isValid" [class.neutralP]="!actualQCM.listQuestions[i].listChoix[3].isValid"><span [class.activeSpan]="cbResult3">{{prefixResponse[3]}}</span>{{actualQCM.listQuestions[i].listChoix[3].texteChoix}}</p>
+        </div>
+
+        <div class="resultContainer" *ngFor="let answerEleve of question">
+          <div class="choixStudent" [class.trueP]="answerEleve.goodResponse" [class.falseP]="!answerEleve.goodResponse" ><p>{{answerEleve.nomEleve[0]}}</p></div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+  <div id="formDivQuestion" *ngIf="sessionStarted && !isTeacher">
+    <form #questionForm="ngForm" id="formDiv" (ngSubmit)="onQuestionSent(questionForm)">
+      <p *ngIf="waitingForResponse" class="infoReponse">Attente de l'envoi de la réponse par le professeur</p>
+      <p class="questionEnonce">{{actualQuestion.enonce}}</p>
+
+
+      <div *ngIf="!showResponse">
+        <div class="listChoixStyle student">
+          <p [class.activeP]="cbResult1"><span
+              [class.activeSpan]="cbResult1">A</span>{{actualQuestion.listChoix[0].texteChoix}}</p>
+          <input [(ngModel)]="cbResult1" name="cb1" type="checkbox">
+        </div>
+        <div class="listChoixStyle student">
+          <p [class.activeP]="cbResult2"><span
+              [class.activeSpan]="cbResult2">B</span>{{actualQuestion.listChoix[1].texteChoix}}</p>
+          <input [(ngModel)]="cbResult2" name="cb2" type="checkbox">
+        </div>
+        <div class="listChoixStyle student">
+          <p [class.activeP]="cbResult3"><span
+              [class.activeSpan]="cbResult3">C</span>{{actualQuestion.listChoix[2].texteChoix}}</p>
+          <input [(ngModel)]="cbResult3" name="cb3" type="checkbox">
+        </div>
+        <div class="listChoixStyle student">
+          <p [class.activeP]="cbResult4"><span
+              [class.activeSpan]="cbResult4">D</span>{{actualQuestion.listChoix[3].texteChoix}}</p>
+          <input [(ngModel)]="cbResult4" name="cb4" type="checkbox">
+        </div>
+      </div>
+
+      <div *ngIf="showResponse">
+        <div class="listChoixStyle student">
+          <p [class.trueP]="actualQuestion.listChoix[0].isValid"><span>A</span>{{actualQuestion.listChoix[0].texteChoix}}</p>
+        </div>
+        <div class="listChoixStyle student">
+          <p [class.trueP]="actualQuestion.listChoix[1].isValid"><span>B</span>{{actualQuestion.listChoix[1].texteChoix}}</p>
+        </div>
+        <div class="listChoixStyle student">
+          <p [class.trueP]="actualQuestion.listChoix[2].isValid"><span>C</span>{{actualQuestion.listChoix[2].texteChoix}}</p>
+        </div>
+        <div class="listChoixStyle student">
+          <p [class.trueP]="actualQuestion.listChoix[3].isValid"><span>D</span>{{actualQuestion.listChoix[3].texteChoix}}</p>
+        </div>
+      </div>
+
+
+      <input *ngIf="!waitingForResponse && !showResponse" class="sendBtn" type="submit" value="Valider">
+    </form>
+  </div>
+
+</div>

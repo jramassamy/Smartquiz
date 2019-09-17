@@ -1,0 +1,240 @@
+.wrap{
+  width: 100%;
+  max-width: 780px;
+  height: 85%;
+  max-height: 678px;
+  background: white;
+  border-radius: 10px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+input {
+  color: black;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
+input[type=text] {
+  border: none;
+  border-bottom: 2px solid black;
+}
+input[type=text]::placeholder {
+  color: rgb(27, 24, 24);
+}
+#formControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.enteteQuestion , .listePossibilite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.listePossibilite {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.infoQCM {
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  padding-top: 25px;
+  margin-bottom: 5px;
+  margin: 0 auto;
+}
+
+.enteteQuestion input[type=text] {
+  width: 320px;
+  height: 20px;
+}
+
+.listePossibilite input[type=text] {
+  width: calc(100% / 5);
+  height: 20px;
+}
+
+.enteteQuestion {
+  flex-direction: column;
+}
+.enteteQuestion p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.ouvert {
+  position: relative;
+  display: inline-block;
+  width: 47px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.ouvert input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+/* The slider */
+.slider {
+  border-radius: 34px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #b053b0;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+#titleCreate {
+  color: orange;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+form {
+  width: 100%;
+  max-height: calc(100% - 100px);
+  overflow-y: auto;
+}
+
+#statusQCMDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#statusQCMDiv p {
+  color: orange;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+#statusQCMDiv > * {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btnForm {
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background: #b053b0;
+  color: white;
+}
+
+.btnForm:hover {
+  background: #e693e6;
+  text-decoration: none;
+}
+
+#saveQuestion {
+  position: absolute;
+  bottom: 10px;
+  left:0;
+  right:0;
+  text-align: center;
+  width: 125px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#btnQuestionDiv {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#btnQuestion {
+  margin: 0 auto;
+}
+
+@media(max-width: 1000px) {
+  .infoQCM {
+    display: flex;
+    justify-content: space-around;
+    width: initial;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    margin-bottom: 5px;
+    margin: 0 auto;
+  }
+  .infoQCM > * {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+  border-radius: 10px;
+
+}

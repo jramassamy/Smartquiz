@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="wrap">
+    <ng-container *ngIf="userService.currentUser.role === 'professeur'">
+      <a id="creerQCM" routerLink="/creerQCM"><span>créer un qcm</span></a> <!-- CreationQCMApp -->
+      <a id="administrerQCM" routerLink="/participerQCM"><span>administrer un qcm</span></a> <!-- participationQCMApp -->
+      <a id="notesElevesQCM" routerLink="/notesElevesQCM"><span>consulter les notes</span></a> <!-- notesQCMApp -->
+      <a class="statsQCM" routerLink="/stats"><span>consulter les stats</span></a> <!-- statsApp -->
+    </ng-container>
+    <ng-container *ngIf="userService.currentUser.role === 'eleve'">
+      <a id="participerQCM" routerLink="/participerQCM"><span>participer à un qcm</span></a> <!-- participationQCMApp -->
+      <a id="notesQCM" routerLink="/mesNotes"><span>consulter mes notes</span></a> <!-- notesQCMApp -->
+      <a class="statsQCM" routerLink="/stats"><span>consulter mes stats</span></a> <!-- statsApp -->
+    </ng-container>
+  </div>
+</div>

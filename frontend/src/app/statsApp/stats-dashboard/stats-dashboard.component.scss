@@ -1,0 +1,30 @@
+.wrap{
+  width: 100%;
+  max-width: 780px;
+  height: 85%;
+  max-height:678px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+/*.flex-item{
+  width: 100%;
+  min-width: 580px;
+  height: 90%;
+  min-height:750px;  
+  margin: auto;
+  justify-content: center;  
+
+
+}*/
+@media(max-width: 1000px) {
+  canvas {
+    max-width: 90% !important;
+    margin: 0 auto;
+  }
+}

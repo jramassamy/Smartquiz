@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="wrap">
+      <div class="flex">
+          <ng-container *ngIf="userService.currentUser.role === 'eleve'">
+          <div class="flex-item" id="stat">
+            <div *ngIf="loaded" style="display: block;">
+            <canvas baseChart width="470" height="350"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                        [plugins]="lineChartPlugins"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </div>
+        </ng-container>
+          <!-- <div class="flex-item">
+            
+            <button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>
+          </div> -->
+        </div>  </div>
+</div>

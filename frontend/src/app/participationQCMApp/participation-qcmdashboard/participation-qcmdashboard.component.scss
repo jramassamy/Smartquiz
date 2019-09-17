@@ -1,0 +1,42 @@
+.wrap{
+  width: 100%;
+  max-width: 780px;
+  height: 85%;
+  max-height:678px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.qcm {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color:	rgb(30,144,255);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 0 4px rgba(0,0,0, 0.2);
+}
+
+.qcm:hover {
+  background-color: rgb(0,0,128);
+}
+.qcm > * {
+  color: white;
+  text-align: center;
+}
+
+@media(max-width:1000px) {
+  .qcm {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
