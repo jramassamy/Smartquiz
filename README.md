@@ -1,13 +1,13 @@
-# ProjectForm - QCM Interactif
+# Smartquiz - QCM Interactif
 
 Projet sur une semaine consistant à créer un site web de QCM interactif.
 
 ## Présentation du projet
 
-Le projet consiste à créer un site web où l'on peut créer et participer à des QCMs. Nous avions le choix concernant les technologies.
+Le projet consistait à créer un site web où l'on peut créer et participer à des QCMs. Nous avions le choix concernant les technologies.
 
 Nous avons choisi ces technologies :
-* AngularJS (front)
+* Angular (front)
 * NodeJS avec une surcouche TypeScript (back)
 * MongoDB (base de données)
 
@@ -16,7 +16,7 @@ Nous avons choisi ces technologies :
 Pour installer le projet:
 1. Vérifier d'avoir la dernière version de *Node.js* et d'*AngularJS*
 2. Vérifier d'avoir une instance de mongoDB en route
-3. Cloner le répertoire `git clone https://github.com/Grimnir777/ProjectForm`
+3. Cloner le répertoire `git clone https://github.com/jramassamy/Smartquiz`
 4. Dans le fichier `frontend\src\app\web-socket.service.ts` ,remplacer l'*uri* par `http://localhost:3000/QCMs`
 5. Dans le fichier `frontend\src\app\package.json`, remplacer la commande `"start": "ng serve --host 0.0.0.0"` par `"start": "ng serve"`
 6. Dans le fichier `frontend\src\environments\environment.ts`, remplacer la constante *environment* par :
